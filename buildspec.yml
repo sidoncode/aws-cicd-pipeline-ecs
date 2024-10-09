@@ -18,7 +18,7 @@ phases:
       - echo Pushing the Docker image...
       - docker push 806627825545.dkr.ecr.us-east-1.amazonaws.com/ecs-new:latest
       - echo Writing image definitions file...
-      - printf '[{"name":"%s","imageUri":"%s"}]' "$IMAGE_REPO_NAME" "$REPOSITORY_URI:$IMAGE_TAG" > imagedefinitions.json
+      - printf '[{"name":"%s","imageUri":"%s"}]' "ecs-new" "806627825545.dkr.ecr.us-east-1.amazonaws.com/ecs-new:latest" > imagedefinitions.json
 
 artifacts:
   files:
