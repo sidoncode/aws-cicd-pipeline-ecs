@@ -4,19 +4,19 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 806627825545.dkr.ecr.us-east-1.amazonaws.com
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 340174775613.dkr.ecr.us-east-1.amazonaws.com
     
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t ecs-new .
-      - docker tag ecs-new:latest 806627825545.dkr.ecr.us-east-1.amazonaws.com/ecs-new:latest
+      - docker build -t ecs-new1 .
+      - docker tag ecs-new1:latest 340174775613.dkr.ecr.us-east-1.amazonaws.com/ecs-new1:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 806627825545.dkr.ecr.us-east-1.amazonaws.com/ecs-new:latest
+      - docker push 340174775613.dkr.ecr.us-east-1.amazonaws.com/ecs-new1:latest
       - echo Writing image definitions file...
       - printf '[{"name":"%s","imageUri":"%s"}]' "ecs-new" "806627825545.dkr.ecr.us-east-1.amazonaws.com/ecs-new:latest" > imagedefinitions.json
 
